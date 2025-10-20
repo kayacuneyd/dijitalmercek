@@ -1,0 +1,162 @@
+{
+  "faqs": [
+    {
+      "id": "pricing",
+      "question": "Web sitesi geliştirme fiyatları nasıl?",
+      "category": "fiyatlandırma",
+      "priority": 1,
+      "keywords": ["fiyat", "ücret", "maliyet", "ne kadar"]
+    },
+    {
+      "id": "timeline",
+      "question": "Bir web sitesi ne kadar sürede hazırlanır?",
+      "category": "süreç",
+      "priority": 2,
+      "keywords": ["süre", "zaman", "ne kadar sürede", "tamamlanma"]
+    },
+    {
+      "id": "technologies",
+      "question": "Hangi teknolojileri kullanıyorsunuz?",
+      "category": "teknoloji",
+      "priority": 3,
+      "keywords": ["teknoloji", "programlama", "dil", "framework"]
+    },
+    {
+      "id": "responsive",
+      "question": "Mobil uyumlu web sitesi yapıyor musunuz?",
+      "category": "özellikler",
+      "priority": 4,
+      "keywords": ["mobil", "responsive", "telefon", "tablet"]
+    },
+    {
+      "id": "seo",
+      "question": "SEO optimizasyonu dahil mi?",
+      "category": "seo",
+      "priority": 5,
+      "keywords": ["seo", "arama motoru", "google", "optimizasyon"]
+    },
+    {
+      "id": "maintenance",
+      "question": "Site bakımı ve güncellemeler nasıl?",
+      "category": "destek",
+      "priority": 6,
+      "keywords": ["bakım", "güncelleme", "destek", "sürekli"]
+    },
+    {
+      "id": "hosting",
+      "question": "Hosting ve domain hizmeti veriyor musunuz?",
+      "category": "hosting",
+      "priority": 7,
+      "keywords": ["hosting", "domain", "sunucu", "barındırma"]
+    },
+    {
+      "id": "ecommerce",
+      "question": "E-ticaret sitesi yapabiliyor musunuz?",
+      "category": "e-ticaret",
+      "priority": 8,
+      "keywords": ["e-ticaret", "online mağaza", "satış", "alışveriş"]
+    },
+    {
+      "id": "payment",
+      "question": "Ödeme koşulları nelerdir?",
+      "category": "ödeme",
+      "priority": 9,
+      "keywords": ["ödeme", "peşin", "taksit", "koşul"]
+    },
+    {
+      "id": "revision",
+      "question": "Kaç revizyon hakkım var?",
+      "category": "revizyon",
+      "priority": 10,
+      "keywords": ["revizyon", "değişiklik", "düzeltme", "hak"]
+    },
+    {
+      "id": "portfolio",
+      "question": "Daha önceki projelerinizi görebilir miyim?",
+      "category": "portföy",
+      "priority": 11,
+      "keywords": ["portföy", "proje", "örnek", "çalışma"]
+    },
+    {
+      "id": "communication",
+      "question": "Proje süresince nasıl iletişim kuruyoruz?",
+      "category": "iletişim",
+      "priority": 12,
+      "keywords": ["iletişim", "haberleşme", "görüşme", "toplantı"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "fiyatlandırma",
+      "name": "Fiyatlandırma",
+      "icon": "💰",
+      "color": "#10b981"
+    },
+    {
+      "id": "süreç",
+      "name": "Süreç",
+      "icon": "⏱️",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "teknoloji",
+      "name": "Teknoloji",
+      "icon": "💻",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "özellikler",
+      "name": "Özellikler",
+      "icon": "✨",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "seo",
+      "name": "SEO",
+      "icon": "🔍",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "destek",
+      "name": "Destek",
+      "icon": "🛠️",
+      "color": "#ef4444"
+    },
+    {
+      "id": "hosting",
+      "name": "Hosting",
+      "icon": "🌐",
+      "color": "#84cc16"
+    },
+    {
+      "id": "e-ticaret",
+      "name": "E-ticaret",
+      "icon": "🛒",
+      "color": "#f97316"
+    },
+    {
+      "id": "ödeme",
+      "name": "Ödeme",
+      "icon": "💳",
+      "color": "#ec4899"
+    },
+    {
+      "id": "revizyon",
+      "name": "Revizyon",
+      "icon": "🔄",
+      "color": "#6366f1"
+    },
+    {
+      "id": "portföy",
+      "name": "Portföy",
+      "icon": "🎨",
+      "color": "#14b8a6"
+    },
+    {
+      "id": "iletişim",
+      "name": "İletişim",
+      "icon": "💬",
+      "color": "#64748b"
+    }
+  ]
+}

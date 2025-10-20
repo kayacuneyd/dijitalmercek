@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Freelance Web Developer Portfolio - Modern, responsive websites and web applications. Professional web development services in Turkish.">
+    <meta name="keywords" content="web developer, freelance, portfolio, web development, responsive design, Turkish">
+    <meta name="author" content="[YOUR_NAME]">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[YOUR_WEBSITE_URL]">
+    <meta property="og:title" content="[YOUR_NAME] - Freelance Web Developer">
+    <meta property="og:description" content="Modern, responsive websites and web applications. Professional web development services.">
+    <meta property="og:image" content="[YOUR_WEBSITE_URL]/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="[YOUR_WEBSITE_URL]">
+    <meta property="twitter:title" content="[YOUR_NAME] - Freelance Web Developer">
+    <meta property="twitter:description" content="Modern, responsive websites and web applications. Professional web development services.">
+    <meta property="twitter:image" content="[YOUR_WEBSITE_URL]/assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/assets/manifest.json">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb">
+
+    <title>Cüneyt Kaya - Freelance Web Developer</title>
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical CSS - Bootstrap 5.3.x CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Critical inline CSS for above-the-fold content -->
+    <style>
+        /* Critical CSS for initial page load */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #111827;
+            background-color: #ffffff;
+        }
+        
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            height: 64px;
+        }
+        
+        .app-main {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+        }
+        
+        /* Loading state */
+        .loading-placeholder {
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 8px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Main App Layout -->
+    <div class="app-layout">
+        <!-- Header Component -->
+        <header class="app-header" id="app-header">
+            <!-- Header content will be loaded by app-header.js component -->
+            <div class="loading-placeholder" style="height: 64px; width: 100%;"></div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="app-main" id="main-content">
+            <!-- Desktop Layout (≥992px): 3 Column -->
+            <!-- Tablet Layout (768-991px): 2 Column -->
+            <!-- Mobile Layout (<768px): 1 Column -->
+            
+            <!-- Left Sidebar -->
+            <aside class="sidebar-left" id="sidebar-left" role="complementary" aria-label="Profil bilgileri ve navigasyon">
+                <!-- Sidebar content will be loaded by sidebar-left.js component -->
+                <div class="loading-placeholder" style="height: 400px; margin: 20px;"></div>
+            </aside>
+
+            <!-- Main Content -->
+            <section class="main-content" role="main">
+                <!-- Service Cards Section -->
+                <section class="service-section" data-aos="fade-up" aria-labelledby="services-heading">
+                    <div class="container-fluid">
+                        <h2 id="services-heading" class="h3 mb-4">Hizmetlerim</h2>
+                        <div class="service-slider" id="service-slider">
+                            <!-- Service cards will be loaded by service-slider.js component -->
+                            <div class="loading-placeholder" style="height: 200px; margin-bottom: 20px;"></div>
+                            <div class="loading-placeholder" style="height: 200px; margin-bottom: 20px;"></div>
+                            <div class="loading-placeholder" style="height: 200px; margin-bottom: 20px;"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Quick Questions Section -->
+                <section class="faq-section mt-6" data-aos="fade-up" aria-labelledby="faq-heading">
+                    <div class="container-fluid">
+                        <h2 id="faq-heading" class="h3 mb-4">Sık Sorulan Sorular</h2>
+                        <div class="faq-slider" id="faq-slider">
+                            <!-- FAQ buttons will be loaded by faq-slider.js component -->
+                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 200px;"></div>
+                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 180px;"></div>
+                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 220px;"></div>
+                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 160px;"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Chat Section -->
+                <section class="chat-section mt-6" data-aos="fade-up" aria-labelledby="chat-heading">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h2 id="chat-heading" class="h3 mb-3">Projeniz hakkında konuşalım</h2>
+                                <p class="text-muted mb-4">Size nasıl yardımcı olabileceğimi öğrenmek için sohbet edelim. AI asistanımız size 7/24 hizmet veriyor.</p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <button type="button" class="btn btn-primary btn-lg" id="open-chat-btn" aria-describedby="chat-description">
+                                    <span class="me-2">💬</span>
+                                    Sohbet Başlat
+                                </button>
+                                <div id="chat-description" class="sr-only">AI asistanı ile sohbet başlatmak için butona tıklayın</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar-right" id="sidebar-right" role="complementary" aria-label="Projeler ve makaleler">
+                <!-- Sidebar content will be loaded by sidebar-right.js component -->
+                <div class="loading-placeholder" style="height: 600px; margin: 20px;"></div>
+            </aside>
+        </main>
+
+        <!-- Mobile Bottom CTA Bar -->
+        <div class="mobile-cta-bar d-lg-none" id="mobile-cta-bar">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-primary btn-lg w-100" id="mobile-cta-btn">
+                    <span class="me-2">🚀</span>
+                    Proje Başlat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer" role="contentinfo">
+        <div class="container text-center">
+            <p class="mb-0" id="footer-copyright">
+                © <span id="footer-year"></span> [YOUR_NAME]. Tüm hakları saklıdır.
+            </p>
+            <!-- Gelecekte: Günlük alıntı buraya eklenecek -->
+            <!-- <div class="daily-quote mt-3" id="daily-quote"></div> -->
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <!-- AI Chat Modal -->
+    <div class="modal" id="ai-chat-modal" tabindex="-1" role="dialog" aria-labelledby="chat-modal-title" aria-hidden="true">
+        <!-- Modal content will be loaded by ai-chat-modal.js component -->
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="loading-placeholder" style="height: 500px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal" tabindex="-1" role="dialog" aria-labelledby="auth-modal-title" aria-hidden="true">
+        <!-- Modal content will be loaded by auth-modal.js component -->
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="loading-placeholder" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container for notifications -->
+    <div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+        <!-- Toast notifications will be added here dynamically -->
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap 5.3.x JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Configuration -->
+    <script type="module" src="js/config.js"></script>
+    
+    <!-- Utility Modules -->
+    <script type="module" src="js/utils/storage.js"></script>
+    <script type="module" src="js/utils/dom-helpers.js"></script>
+    <script type="module" src="js/utils/api-client.js"></script>
+    
+    <!-- Service Layer -->
+    <script type="module" src="js/services/clerk-auth.js"></script>
+    <script type="module" src="js/services/openai-service.js"></script>
+    <script type="module" src="js/services/email-service.js"></script>
+    <script type="module" src="js/services/analytics.js"></script>
+    
+    <!-- Atomic Components -->
+    <script type="module" src="js/components/atoms/base-button.js"></script>
+    <script type="module" src="js/components/atoms/avatar-image.js"></script>
+    <script type="module" src="js/components/atoms/badge-tag.js"></script>
+    <script type="module" src="js/components/atoms/icon-svg.js"></script>
+    <script type="module" src="js/components/atoms/loader-spinner.js"></script>
+    
+    <!-- Molecular Components -->
+    <script type="module" src="js/components/molecules/service-card.js"></script>
+    <script type="module" src="js/components/molecules/project-card.js"></script>
+    <script type="module" src="js/components/molecules/faq-button.js"></script>
+    <script type="module" src="js/components/molecules/article-preview.js"></script>
+    <script type="module" src="js/components/molecules/stat-counter.js"></script>
+    <script type="module" src="js/components/molecules/social-links.js"></script>
+    
+    <!-- Organism Components -->
+    <script type="module" src="js/components/organisms/app-header.js"></script>
+    <script type="module" src="js/components/organisms/sidebar-left.js"></script>
+    <script type="module" src="js/components/organisms/sidebar-right.js"></script>
+    <script type="module" src="js/components/organisms/service-slider.js"></script>
+    <script type="module" src="js/components/organisms/faq-slider.js"></script>
+    <script type="module" src="js/components/organisms/ai-chat-modal.js"></script>
+    <script type="module" src="js/components/organisms/auth-modal.js"></script>
+    <script type="module" src="js/components/organisms/project-grid.js"></script>
+    <script type="module" src="js/components/organisms/cal-embed.js"></script>
+    
+    <!-- Main Application -->
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- Simple Component Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing components...');
+            
+            // Wait a bit for all scripts to load
+            setTimeout(() => {
+                // Initialize components
+                const header = document.getElementById('app-header');
+                if (header) {
+                    header.innerHTML = '<app-header></app-header>';
+                }
+
+                const leftSidebar = document.getElementById('sidebar-left');
+                if (leftSidebar) {
+                    leftSidebar.innerHTML = '<sidebar-left></sidebar-left>';
+                }
+
+                const rightSidebar = document.getElementById('sidebar-right');
+                if (rightSidebar) {
+                    rightSidebar.innerHTML = '<sidebar-right></sidebar-right>';
+                }
+
+                const serviceSlider = document.getElementById('service-slider');
+                if (serviceSlider) {
+                    serviceSlider.innerHTML = '<service-slider></service-slider>';
+                }
+
+                const faqSlider = document.getElementById('faq-slider');
+                if (faqSlider) {
+                    faqSlider.innerHTML = '<faq-slider></faq-slider>';
+                }
+                
+                console.log('Components initialized!');
+            }, 1000);
+        });
+    </script>
+
+    <!-- Service Worker Registration (for future PWA features) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Service worker will be added in future updates
+                console.log('Service Worker support detected');
+            });
+        }
+    </script>
+
+    <!-- Analytics and Performance Monitoring -->
+    <script>
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            // Basic performance metrics
+            if ('performance' in window) {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+            }
+        });
+
+        // Error tracking
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            // In production, send to analytics service
+        });
+
+        // Unhandled promise rejection tracking
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+            // In production, send to analytics service
+        });
+    </script>
+</body>
+</html>

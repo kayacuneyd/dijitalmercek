@@ -1,0 +1,52 @@
+{
+  "personal": {
+    "name": "Cüneyt Kaya",
+    "title": "Freelance Web Geliştirici",
+    "company": "CKWEB.DEV",
+    "bio": "Modern, performans odaklı ve kullanıcı dostu web deneyimleri oluşturma konusunda uzmanlaşmış bir freelance web geliştiriciyim. Fikirlerinizi dijital dünyaya taşımak için buradayım.",
+    "status": "Proje almaya açık"
+  },
+  "profileImage": "https://kayacuneyt.com/assets/images/kayacuneyt.jpeg",
+  "stats": [
+    { "label": "Tamamlanan Projeler", "number": "50", "suffix": "+", "icon": "📊" },
+    { "label": "Müşteri Memnuniyeti", "number": "4.9", "suffix": "⭐", "icon": "⭐" },
+    { "label": "Yıllık Deneyim", "number": "5", "suffix": "+", "icon": "📅" },
+    { "label": "Yanıt Süresi", "number": "< 2", "suffix": "s", "icon": "⚡" }
+  ],
+  "skills": [
+    { "name": "HTML5" }, { "name": "CSS3" }, { "name": "JavaScript (ES6+)" }, { "name": "Web Components" }, 
+    { "name": "Bootstrap 5" }, { "name": "Sass" }, { "name": "React (Temel)" }, { "name": "Node.js (Temel)" }, 
+    { "name": "Git" }, { "name": "REST API" }, { "name": "Responsive Design" }, { "name": "SEO Optimizasyonu" }
+  ],
+  "social": [
+    {
+      "platform": "email",
+      "label": "E-posta",
+      "url": "mailto:[E-POSTA_ADRESİNİZ]",
+      "icon": "📧",
+      "primary": true
+    },
+    {
+      "platform": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/[WHATSAPP_NUMARANIZ]",
+      "icon": "💬",
+      "primary": true
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "[LINKEDIN_PROFİL_URL'İNİZ]",
+      "icon": "💼",
+      "primary": true
+    },
+    {
+      "platform": "calcom",
+      "label": "Görüşme Planla",
+      "url": "[CAL.COM_PROFİL_URL'İNİZ]",
+      "icon": "📅",
+      "primary": false
+    }
+  ],
+  "availability": "Online"
+}

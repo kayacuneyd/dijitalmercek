@@ -1,0 +1,132 @@
+{
+  "services": [
+    {
+      "id": "web-development",
+      "title": "Web Geliştirme",
+      "description": "Modern, responsive ve hızlı web siteleri. HTML5, CSS3, JavaScript ve güncel teknolojiler kullanarak profesyonel web çözümleri.",
+      "icon": "assets/icons/code.svg",
+      "link": "#web-development",
+      "features": [
+        "Responsive tasarım",
+        "SEO optimizasyonu",
+        "Hızlı yükleme süreleri",
+        "Mobil uyumlu"
+      ],
+      "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Vue.js"],
+      "price": "₺2.500'den başlayan fiyatlarla",
+      "delivery": "2-4 hafta"
+    },
+    {
+      "id": "ui-ux-design",
+      "title": "UI/UX Tasarım",
+      "description": "Kullanıcı odaklı arayüz tasarımları. Kullanıcı deneyimini ön planda tutan, modern ve işlevsel tasarım çözümleri.",
+      "icon": "assets/icons/design.svg",
+      "link": "#ui-ux-design",
+      "features": [
+        "Wireframe ve prototip",
+        "Kullanıcı araştırması",
+        "Mobil öncelikli tasarım",
+        "Accessibility uyumlu"
+      ],
+      "technologies": ["Figma", "Adobe XD", "Sketch", "InVision"],
+      "price": "₺1.500'den başlayan fiyatlarla",
+      "delivery": "1-3 hafta"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-ticaret Çözümleri",
+      "description": "Tam özellikli online mağazalar. WooCommerce, Shopify ve özel e-ticaret platformları ile satış sitenizi kuruyorum.",
+      "icon": "assets/icons/shopping.svg",
+      "link": "#ecommerce",
+      "features": [
+        "Ödeme entegrasyonları",
+        "Envanter yönetimi",
+        "SEO optimizasyonu",
+        "Mobil mağaza"
+      ],
+      "technologies": ["WooCommerce", "Shopify", "Magento", "PrestaShop"],
+      "price": "₺4.000'den başlayan fiyatlarla",
+      "delivery": "3-6 hafta"
+    },
+    {
+      "id": "mobile-app",
+      "title": "Mobil Uygulama",
+      "description": "iOS ve Android uygulamaları. React Native ile çapraz platform mobil uygulama geliştirme hizmetleri.",
+      "icon": "assets/icons/mobile.svg",
+      "link": "#mobile-app",
+      "features": [
+        "Çapraz platform",
+        "Native performans",
+        "App Store optimizasyonu",
+        "Push bildirimler"
+      ],
+      "technologies": ["React Native", "Flutter", "Ionic", "Cordova"],
+      "price": "₺8.000'den başlayan fiyatlarla",
+      "delivery": "6-12 hafta"
+    },
+    {
+      "id": "seo-optimization",
+      "title": "SEO Optimizasyonu",
+      "description": "Arama motorlarında üst sıralarda yer alın. Teknik SEO, içerik optimizasyonu ve dijital pazarlama stratejileri.",
+      "icon": "assets/icons/search.svg",
+      "link": "#seo-optimization",
+      "features": [
+        "Teknik SEO analizi",
+        "İçerik optimizasyonu",
+        "Google Analytics kurulumu",
+        "Hız optimizasyonu"
+      ],
+      "technologies": ["Google Analytics", "Search Console", "Schema.org", "Core Web Vitals"],
+      "price": "₺1.000'den başlayan fiyatlarla",
+      "delivery": "2-4 hafta"
+    },
+    {
+      "id": "maintenance",
+      "title": "Bakım ve Destek",
+      "description": "Web sitenizin sürekli güncel ve güvenli kalması için bakım hizmetleri. 7/24 teknik destek ve güncelleme.",
+      "icon": "assets/icons/support.svg",
+      "link": "#maintenance",
+      "features": [
+        "Güvenlik güncellemeleri",
+        "Yedekleme hizmetleri",
+        "Performans izleme",
+        "7/24 destek"
+      ],
+      "technologies": ["SSL", "CDN", "Monitoring", "Backup"],
+      "price": "₺500/ay'dan başlayan fiyatlarla",
+      "delivery": "Sürekli hizmet"
+    },
+    {
+      "id": "wordpress",
+      "title": "WordPress Geliştirme",
+      "description": "Özel tema ve eklenti geliştirme. WordPress siteleriniz için tamamen özelleştirilebilir çözümler.",
+      "icon": "assets/icons/wordpress.svg",
+      "link": "#wordpress",
+      "features": [
+        "Özel tema geliştirme",
+        "Eklenti geliştirme",
+        "WooCommerce entegrasyonu",
+        "Güvenlik optimizasyonu"
+      ],
+      "technologies": ["WordPress", "PHP", "MySQL", "WooCommerce"],
+      "price": "₺2.000'den başlayan fiyatlarla",
+      "delivery": "2-5 hafta"
+    },
+    {
+      "id": "api-development",
+      "title": "API Geliştirme",
+      "description": "RESTful API ve mikroservis mimarisi. Modern web uygulamaları için güvenli ve ölçeklenebilir API çözümleri.",
+      "icon": "assets/icons/api.svg",
+      "link": "#api-development",
+      "features": [
+        "RESTful API tasarımı",
+        "Dokümantasyon",
+        "Güvenlik testleri",
+        "Performans optimizasyonu"
+      ],
+      "technologies": ["Node.js", "Express", "MongoDB", "PostgreSQL"],
+      "price": "₺3.500'den başlayan fiyatlarla",
+      "delivery": "3-6 hafta"
+    }
+  ]
+}

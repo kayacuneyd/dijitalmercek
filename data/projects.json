@@ -1,0 +1,220 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-platform",
+      "title": "Moda E-ticaret Platformu",
+      "description": "Tam özellikli online mağaza. WooCommerce tabanlı, mobil uyumlu ve SEO optimizasyonlu e-ticaret sitesi.",
+      "thumbnail": "assets/images/projects/ecommerce-fashion.jpg",
+      "link": "https://example.com",
+      "category": "E-ticaret",
+      "technologies": ["WordPress", "WooCommerce", "PHP", "MySQL", "CSS3", "JavaScript"],
+      "features": [
+        "Responsive tasarım",
+        "Ödeme entegrasyonları",
+        "Envanter yönetimi",
+        "SEO optimizasyonu"
+      ],
+      "completionDate": "2024-01-15",
+      "client": "Moda Şirketi",
+      "duration": "6 hafta"
+    },
+    {
+      "id": "corporate-website",
+      "title": "Kurumsal Web Sitesi",
+      "description": "Modern ve profesyonel kurumsal web sitesi. React.js ile geliştirilmiş, hızlı ve kullanıcı dostu arayüz.",
+      "thumbnail": "assets/images/projects/corporate-site.jpg",
+      "link": "https://example.com",
+      "category": "Kurumsal",
+      "technologies": ["React", "Node.js", "MongoDB", "Express", "Bootstrap"],
+      "features": [
+        "Tek sayfa uygulaması",
+        "İletişim formu",
+        "Blog sistemi",
+        "CMS entegrasyonu"
+      ],
+      "completionDate": "2023-12-20",
+      "client": "Teknoloji Şirketi",
+      "duration": "4 hafta"
+    },
+    {
+      "id": "restaurant-booking",
+      "title": "Restoran Rezervasyon Sistemi",
+      "description": "Mobil uygulama ve web paneli. Müşterilerin kolayca rezervasyon yapabileceği, restoran yönetimi için kapsamlı sistem.",
+      "thumbnail": "assets/images/projects/restaurant-app.jpg",
+      "link": "https://example.com",
+      "category": "Mobil Uygulama",
+      "technologies": ["React Native", "Node.js", "PostgreSQL", "Socket.io"],
+      "features": [
+        "Gerçek zamanlı rezervasyon",
+        "Push bildirimler",
+        "Admin paneli",
+        "Ödeme entegrasyonu"
+      ],
+      "completionDate": "2023-11-10",
+      "client": "Restoran Zinciri",
+      "duration": "8 hafta"
+    },
+    {
+      "id": "portfolio-site",
+      "title": "Freelancer Portföy Sitesi",
+      "description": "Yaratıcı portföy web sitesi. Animasyonlu geçişler ve modern tasarım ile dikkat çeken kişisel portföy.",
+      "thumbnail": "assets/images/projects/portfolio-site.jpg",
+      "link": "https://example.com",
+      "category": "Portföy",
+      "technologies": ["Vue.js", "GSAP", "SCSS", "Webpack"],
+      "features": [
+        "Animasyonlu geçişler",
+        "İnteraktif portföy",
+        "Blog sistemi",
+        "İletişim formu"
+      ],
+      "completionDate": "2023-10-05",
+      "client": "Grafik Tasarımcı",
+      "duration": "3 hafta"
+    },
+    {
+      "id": "education-platform",
+      "title": "Online Eğitim Platformu",
+      "description": "Kapsamlı eğitim yönetim sistemi. Öğrenciler ve eğitmenler için video dersler, sınavlar ve ilerleme takibi.",
+      "thumbnail": "assets/images/projects/education-platform.jpg",
+      "link": "https://example.com",
+      "category": "Eğitim",
+      "technologies": ["Laravel", "MySQL", "Redis", "AWS S3"],
+      "features": [
+        "Video streaming",
+        "Sınav sistemi",
+        "Sertifika oluşturma",
+        "Ödeme entegrasyonu"
+      ],
+      "completionDate": "2023-09-15",
+      "client": "Eğitim Kurumu",
+      "duration": "12 hafta"
+    },
+    {
+      "id": "fitness-app",
+      "title": "Fitness Takip Uygulaması",
+      "description": "Kişisel antrenör uygulaması. Egzersiz planları, beslenme takibi ve ilerleme analizi ile kapsamlı fitness çözümü.",
+      "thumbnail": "assets/images/projects/fitness-app.jpg",
+      "link": "https://example.com",
+      "category": "Mobil Uygulama",
+      "technologies": ["Flutter", "Firebase", "Google Fit API", "Stripe"],
+      "features": [
+        "Egzersiz kütüphanesi",
+        "Beslenme takibi",
+        "İlerleme grafikleri",
+        "Sosyal özellikler"
+      ],
+      "completionDate": "2023-08-20",
+      "client": "Fitness Merkezi",
+      "duration": "10 hafta"
+    },
+    {
+      "id": "real-estate",
+      "title": "Emlak İlan Platformu",
+      "description": "Gelişmiş emlak ilan sistemi. Harita entegrasyonu, filtreleme ve arama özellikleri ile kullanıcı dostu platform.",
+      "thumbnail": "assets/images/projects/real-estate.jpg",
+      "link": "https://example.com",
+      "category": "Emlak",
+      "technologies": ["Next.js", "PostgreSQL", "Mapbox", "Elasticsearch"],
+      "features": [
+        "Harita entegrasyonu",
+        "Gelişmiş arama",
+        "İlan yönetimi",
+        "Mesajlaşma sistemi"
+      ],
+      "completionDate": "2023-07-10",
+      "client": "Emlak Ofisi",
+      "duration": "8 hafta"
+    },
+    {
+      "id": "news-portal",
+      "title": "Haber Portalı",
+      "description": "Modern haber sitesi. Hızlı yükleme, SEO optimizasyonu ve kullanıcı deneyimi odaklı haber platformu.",
+      "thumbnail": "assets/images/projects/news-portal.jpg",
+      "link": "https://example.com",
+      "category": "Medya",
+      "technologies": ["WordPress", "Custom Theme", "CDN", "Redis"],
+      "features": [
+        "Hızlı yükleme",
+        "SEO optimizasyonu",
+        "Sosyal medya entegrasyonu",
+        "Mobil uyumlu"
+      ],
+      "completionDate": "2023-06-25",
+      "client": "Haber Ajansı",
+      "duration": "5 hafta"
+    },
+    {
+      "id": "hospital-management",
+      "title": "Hastane Yönetim Sistemi",
+      "description": "Kapsamlı hastane yönetim yazılımı. Hasta kayıtları, randevu sistemi ve raporlama modülleri ile entegre çözüm.",
+      "thumbnail": "assets/images/projects/hospital-system.jpg",
+      "link": "https://example.com",
+      "category": "Sağlık",
+      "technologies": ["Angular", "ASP.NET Core", "SQL Server", "SignalR"],
+      "features": [
+        "Hasta kayıt sistemi",
+        "Randevu yönetimi",
+        "Raporlama modülleri",
+        "Güvenlik protokolleri"
+      ],
+      "completionDate": "2023-05-30",
+      "client": "Özel Hastane",
+      "duration": "16 hafta"
+    },
+    {
+      "id": "social-network",
+      "title": "Sosyal Ağ Platformu",
+      "description": "Niche sosyal ağ uygulaması. Mesajlaşma, paylaşım ve etkileşim özellikleri ile topluluk odaklı platform.",
+      "thumbnail": "assets/images/projects/social-network.jpg",
+      "link": "https://example.com",
+      "category": "Sosyal Medya",
+      "technologies": ["React", "Node.js", "Socket.io", "AWS"],
+      "features": [
+        "Gerçek zamanlı mesajlaşma",
+        "İçerik paylaşımı",
+        "Etkileşim sistemi",
+        "Mobil uygulama"
+      ],
+      "completionDate": "2023-04-15",
+      "client": "Startup Şirketi",
+      "duration": "14 hafta"
+    },
+    {
+      "id": "inventory-system",
+      "title": "Envanter Yönetim Sistemi",
+      "description": "Stok takip ve yönetim yazılımı. Barkod okuma, raporlama ve otomasyon özellikleri ile işletme yönetimi.",
+      "thumbnail": "assets/images/projects/inventory-system.jpg",
+      "link": "https://example.com",
+      "category": "İşletme",
+      "technologies": ["Vue.js", "Laravel", "MySQL", "Barcode API"],
+      "features": [
+        "Stok takibi",
+        "Barkod sistemi",
+        "Otomatik raporlama",
+        "Multi-depo yönetimi"
+      ],
+      "completionDate": "2023-03-20",
+      "client": "Perakende Zinciri",
+      "duration": "10 hafta"
+    },
+    {
+      "id": "travel-booking",
+      "title": "Seyahat Rezervasyon Sitesi",
+      "description": "Uçak, otel ve araç kiralama rezervasyon platformu. API entegrasyonları ve kullanıcı dostu arayüz.",
+      "thumbnail": "assets/images/projects/travel-booking.jpg",
+      "link": "https://example.com",
+      "category": "Seyahat",
+      "technologies": ["React", "Express", "MongoDB", "Payment APIs"],
+      "features": [
+        "Çoklu rezervasyon",
+        "API entegrasyonları",
+        "Ödeme sistemi",
+        "Mobil uyumlu"
+      ],
+      "completionDate": "2023-02-28",
+      "client": "Seyahat Acentesi",
+      "duration": "12 hafta"
+    }
+  ]
+}

@@ -45,8 +45,8 @@ class OpenAIService {
       // Simulate typing delay
       await this.delay(1500);
       
-      // Generate contextual response
-      const aiResponse = this.generateContextualResponse(message);
+      // Generate smart contextual response
+      const aiResponse = this.generateSmartResponse(message);
       
       // Add AI response to history
       const aiMessage = {
@@ -79,56 +79,65 @@ class OpenAIService {
    * @param {string} message
    * @returns {string}
    */
-  generateContextualResponse(message) {
+  generateSmartResponse(message) {
     const lowerMessage = message.toLowerCase();
     
     // Pricing related responses
-    if (this.containsKeywords(lowerMessage, ['fiyat', 'ücret', 'maliyet', 'ne kadar', 'tutar'])) {
+    if (this.containsKeywords(lowerMessage, ['fiyat', 'ücret', 'maliyet', 'ne kadar', 'tutar', 'para'])) {
       return this.getPricingResponse();
     }
     
     // Timeline related responses
-    if (this.containsKeywords(lowerMessage, ['süre', 'zaman', 'ne kadar sürede', 'tamamlanma', 'bitirme'])) {
+    if (this.containsKeywords(lowerMessage, ['süre', 'zaman', 'ne kadar sürede', 'tamamlanma', 'bitirme', 'hazırlama'])) {
       return this.getTimelineResponse();
     }
     
     // Technology related responses
-    if (this.containsKeywords(lowerMessage, ['teknoloji', 'programlama', 'dil', 'framework', 'react', 'vue', 'angular'])) {
+    if (this.containsKeywords(lowerMessage, ['teknoloji', 'programlama', 'dil', 'framework', 'react', 'vue', 'angular', 'javascript', 'html', 'css'])) {
       return this.getTechnologyResponse();
     }
     
     // SEO related responses
-    if (this.containsKeywords(lowerMessage, ['seo', 'arama motoru', 'google', 'optimizasyon', 'sıralama'])) {
+    if (this.containsKeywords(lowerMessage, ['seo', 'arama motoru', 'google', 'optimizasyon', 'sıralama', 'arama'])) {
       return this.getSEOResponse();
     }
     
     // Mobile related responses
-    if (this.containsKeywords(lowerMessage, ['mobil', 'responsive', 'telefon', 'tablet', 'uyumlu'])) {
+    if (this.containsKeywords(lowerMessage, ['mobil', 'responsive', 'telefon', 'tablet', 'uyumlu', 'mobile'])) {
       return this.getMobileResponse();
     }
     
     // E-commerce related responses
-    if (this.containsKeywords(lowerMessage, ['e-ticaret', 'online mağaza', 'satış', 'alışveriş', 'woocommerce', 'shopify'])) {
+    if (this.containsKeywords(lowerMessage, ['e-ticaret', 'online mağaza', 'satış', 'alışveriş', 'woocommerce', 'shopify', 'ecommerce'])) {
       return this.getEcommerceResponse();
     }
     
     // Support related responses
-    if (this.containsKeywords(lowerMessage, ['destek', 'bakım', 'güncelleme', 'yardım', 'sorun'])) {
+    if (this.containsKeywords(lowerMessage, ['destek', 'bakım', 'güncelleme', 'yardım', 'sorun', 'problem'])) {
       return this.getSupportResponse();
     }
     
     // Portfolio related responses
-    if (this.containsKeywords(lowerMessage, ['portföy', 'proje', 'örnek', 'çalışma', 'referans'])) {
+    if (this.containsKeywords(lowerMessage, ['portföy', 'proje', 'örnek', 'çalışma', 'referans', 'portfolio'])) {
       return this.getPortfolioResponse();
     }
     
     // Contact related responses
-    if (this.containsKeywords(lowerMessage, ['iletişim', 'görüşme', 'toplantı', 'randevu', 'konuşma'])) {
+    if (this.containsKeywords(lowerMessage, ['iletişim', 'görüşme', 'toplantı', 'randevu', 'konuşma', 'contact'])) {
       return this.getContactResponse();
+    }
+    
+    // Greeting responses
+    if (this.containsKeywords(lowerMessage, ['merhaba', 'selam', 'hello', 'hi', 'hey'])) {
+      return this.getGreetingResponse();
     }
     
     // Default response
     return this.getDefaultResponse();
+  }
+
+  generateContextualResponse(message) {
+    return this.generateSmartResponse(message);
   }
 
   /**
@@ -262,13 +271,21 @@ class OpenAIService {
    * Get default response
    * @returns {string}
    */
-  getDefaultResponse() {
+  getGreetingResponse() {
     const responses = [
       "Merhaba! Size nasıl yardımcı olabilirim? Web geliştirme, e-ticaret, SEO, mobil uygulama geliştirme gibi konularda sorularınızı yanıtlayabilirim.",
-      "Web geliştirme hizmetlerim hakkında bilgi almak istiyorsanız, size yardımcı olabilirim. Hangi konuda detay istiyorsunuz?",
-      "Projeniz hakkında konuşalım! Web sitesi, e-ticaret, mobil uygulama veya başka bir proje mi planlıyorsunuz? Size en uygun çözümü sunabilirim.",
-      "Merhaba! Freelance web developer olarak 5 yıllık deneyimimle size hizmet veriyorum. Projeniz hakkında sorularınızı yanıtlayabilirim.",
-      "Size nasıl yardımcı olabilirim? Web geliştirme, tasarım, SEO optimizasyonu veya teknik destek konularında sorularınızı bekliyorum."
+      "Selam! Web geliştirme hizmetlerim hakkında bilgi almak istiyorsanız, size yardımcı olabilirim. Hangi konuda detay istiyorsunuz?",
+      "Merhaba! Projeniz hakkında konuşalım! Web sitesi, e-ticaret, mobil uygulama veya başka bir proje mi planlıyorsunuz? Size en uygun çözümü sunabilirim."
+    ];
+    return this.getRandomResponse(responses);
+  }
+
+  getDefaultResponse() {
+    const responses = [
+      "Size nasıl yardımcı olabilirim? Web geliştirme, tasarım, SEO optimizasyonu veya teknik destek konularında sorularınızı bekliyorum.",
+      "Web geliştirme konularında size yardımcı olmaktan memnuniyet duyarım. Hangi konuda bilgi almak istiyorsunuz?",
+      "Projeniz hakkında daha detaylı bilgi verebilir misiniz? Size en uygun çözümü sunabilirim.",
+      "Web geliştirme, e-ticaret, SEO veya başka bir konuda sorularınızı yanıtlayabilirim. Hangi konuda yardıma ihtiyacınız var?"
     ];
     return this.getRandomResponse(responses);
   }

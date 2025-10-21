@@ -133,12 +133,32 @@
                 <section class="faq-section mt-6" data-aos="fade-up" aria-labelledby="faq-heading">
                     <div class="container-fluid">
                         <h2 id="faq-heading" class="h3 mb-4">Sık Sorulan Sorular</h2>
-                        <div class="faq-slider" id="faq-slider">
-                            <!-- FAQ buttons will be loaded by faq-slider.js component -->
-                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 200px;"></div>
-                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 180px;"></div>
-                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 220px;"></div>
-                            <div class="loading-placeholder" style="height: 48px; margin-bottom: 12px; width: 160px;"></div>
+                        <!-- Yatay scrollable, bitişik (gap ile) FAQ butonları -->
+                        <div id="faq-slider" class="d-flex gap-3 overflow-auto py-2" style="scroll-behavior:smooth;">
+                            <!-- Her bir öğe tıklanabilir ve data-message ile chat'e gönderilecek -->
+                            <button type="button" class="faq-item-btn btn btn-outline-secondary loading-placeholder"
+                                    data-message="Projelerimizle alakalı detaylı bilgi alabilir miyim?"
+                                    style="min-width:180px; height:48px; border-radius:8px; padding:0 12px; white-space:normal; text-align:left;">
+                                Projelerimiz hakkında bilgi alabilir miyim?
+                            </button>
+
+                            <button type="button" class="faq-item-btn btn btn-outline-secondary loading-placeholder"
+                                    data-message="Fiyat tekliflerini nasıl alabilirim?"
+                                    style="min-width:160px; height:48px; border-radius:8px; padding:0 12px; white-space:normal; text-align:left;">
+                                Fiyat teklifleri nasıl alırım?
+                            </button>
+
+                            <button type="button" class="faq-item-btn btn btn-outline-secondary loading-placeholder"
+                                    data-message="Teslim süreleriniz ve süreç nasıl işliyor?"
+                                    style="min-width:200px; height:48px; border-radius:8px; padding:0 12px; white-space:normal; text-align:left;">
+                                Teslim süreleri ve süreç
+                            </button>
+
+                            <button type="button" class="faq-item-btn btn btn-outline-secondary loading-placeholder"
+                                    data-message="Referans projelerinizden örnek görebilir miyim?"
+                                    style="min-width:170px; height:48px; border-radius:8px; padding:0 12px; white-space:normal; text-align:left;">
+                                Referans projeleriniz
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -362,6 +382,28 @@
 
                     // Expose helper for other scripts/components
                     window.chatAppend = appendMessage;
+
+                    // Attach click handlers to FAQ items so they send messages to chat
+                    try {
+                        const faqButtons = document.querySelectorAll('.faq-item-btn');
+                        if (faqButtons && faqButtons.length) {
+                            faqButtons.forEach(btn => {
+                                // Make sure placeholder styling doesn't prevent interaction
+                                btn.classList.remove('loading-placeholder');
+                                btn.addEventListener('click', () => {
+                                    const msg = btn.getAttribute('data-message') || btn.textContent.trim();
+                                    if (!msg) return;
+                                    appendMessage(msg, 'user');
+                                    // Demo bot reply (will be replaced in step 2)
+                                    setTimeout(() => {
+                                        appendMessage('projelerimizle alakalı detaylı bilgi alabilmek için lütfen kayıt olunuz', 'bot');
+                                    }, 600);
+                                });
+                            });
+                        }
+                    } catch (e) {
+                        console.error('FAQ -> chat binding failed', e);
+                    }
                 });
             </script>
 

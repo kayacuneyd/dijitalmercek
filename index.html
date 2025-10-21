@@ -143,20 +143,17 @@
                     </div>
                 </section>
 
-                <!-- AI Chat Section -->
-                <section class="chat-section mt-6" data-aos="fade-up" aria-labelledby="chat-heading">
+                <!-- AI Chat Section (inline chat widget) -->
+                <section class="chat-section mt-6" aria-labelledby="chat-heading">
                     <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <h2 id="chat-heading" class="h3 mb-3">Projeniz hakkında konuşalım</h2>
-                                <p class="text-muted mb-4">Size nasıl yardımcı olabileceğimi öğrenmek için sohbet edelim. AI asistanımız size 7/24 hizmet veriyor.</p>
+                        <div class="chat-widget border rounded p-3">
+                            <h2 id="chat-heading" class="h5 mb-2">Canlı Mesajlaşma</h2>
+                            <div id="chat-messages" class="chat-messages mb-2" style="max-height:320px; overflow-y:auto; padding:8px;">
+                                <div class="text-muted small">Merhaba! Sorularınızı yazabilirsiniz.</div>
                             </div>
-                            <div class="col-md-4 text-md-end">
-                                <button type="button" class="btn btn-primary btn-lg" id="open-chat-btn" aria-describedby="chat-description">
-                                    <span class="me-2">💬</span>
-                                    Sohbet Başlat
-                                </button>
-                                <div id="chat-description" class="sr-only">AI asistanı ile sohbet başlatmak için butona tıklayın</div>
+                            <div class="d-flex gap-2">
+                                <input id="chat-input" type="text" class="form-control" placeholder="Mesajınızı yazın..." aria-label="Mesaj">
+                                <button id="chat-send-btn" class="btn btn-primary">Gönder</button>
                             </div>
                         </div>
                     </div>
@@ -312,6 +309,61 @@
             }, 1000);
         });
     </script>
+
+            <!-- Chat widget behavior -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const messages = document.getElementById('chat-messages');
+                    const input = document.getElementById('chat-input');
+                    const sendBtn = document.getElementById('chat-send-btn');
+
+                    if (!messages || !input || !sendBtn) return;
+
+                    function scrollToBottom() {
+                        // Smooth scroll to bottom for better UX
+                        try {
+                            messages.scrollTo({ top: messages.scrollHeight, behavior: 'smooth' });
+                        } catch (e) {
+                            messages.scrollTop = messages.scrollHeight;
+                        }
+                    }
+
+                    function appendMessage(text, who = 'user') {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = who === 'user' ? 'd-flex justify-content-end mb-2' : 'd-flex justify-content-start mb-2';
+                        const bubble = document.createElement('div');
+                        bubble.className = 'p-2 rounded';
+                        bubble.style.maxWidth = '80%';
+                        bubble.style.wordBreak = 'break-word';
+                        if (who === 'user') {
+                            bubble.classList.add('bg-primary', 'text-white');
+                        } else {
+                            bubble.classList.add('bg-light', 'text-dark');
+                        }
+                        bubble.textContent = text;
+                        wrapper.appendChild(bubble);
+                        messages.appendChild(wrapper);
+                        scrollToBottom();
+                    }
+
+                    function sendMessage() {
+                        const text = input.value.trim();
+                        if (!text) return;
+                        appendMessage(text, 'user');
+                        input.value = '';
+                        // Demo bot reply (placeholder) — 2. adımda geliştireceğiz
+                        setTimeout(() => {
+                            appendMessage('projelerimizle alakalı detaylı bilgi alabilmek için lütfen kayıt olunuz', 'bot');
+                        }, 700);
+                    }
+
+                    sendBtn.addEventListener('click', sendMessage);
+                    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+
+                    // Expose helper for other scripts/components
+                    window.chatAppend = appendMessage;
+                });
+            </script>
 
     <!-- Service Worker Registration (for future PWA features) -->
     <script>

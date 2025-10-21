@@ -5,7 +5,8 @@
 
 class StorageManager {
   constructor(storageType = 'localStorage') {
-    this.storage = storageType === 'sessionStorage' ? sessionStorage : localStorage;
+    this.storageType = storageType === 'sessionStorage' ? 'sessionStorage' : 'localStorage';
+    this._inMemory = Object.create(null);
     this.isAvailable = this.checkAvailability();
   }
 
@@ -15,9 +16,13 @@ class StorageManager {
    */
   checkAvailability() {
     try {
+      // Ensure window and corresponding storage exist
+      if (typeof window === 'undefined') return false;
+      const storageObj = this._getStorageObject();
+      if (!storageObj) return false;
       const testKey = '__storage_test__';
-      this.storage.setItem(testKey, 'test');
-      this.storage.removeItem(testKey);
+      storageObj.setItem(testKey, 'test');
+      storageObj.removeItem(testKey);
       return true;
     } catch (e) {
       return false;
@@ -31,14 +36,16 @@ class StorageManager {
    * @returns {boolean}
    */
   setItem(key, value) {
-    if (!this.isAvailable) {
-      console.warn('Storage not available');
-      return false;
-    }
-
     try {
       const serializedValue = typeof value === 'string' ? value : JSON.stringify(value);
-      this.storage.setItem(key, serializedValue);
+      const storageObj = this._getStorageObject();
+      if (storageObj) {
+        storageObj.setItem(key, serializedValue);
+        return true;
+      }
+
+      // Fallback to in-memory store
+      this._inMemory[key] = serializedValue;
       return true;
     } catch (e) {
       console.error('Error setting storage item:', e);
@@ -53,20 +60,23 @@ class StorageManager {
    * @returns {any}
    */
   getItem(key, defaultValue = null) {
-    if (!this.isAvailable) {
-      return defaultValue;
-    }
-
     try {
-      const item = this.storage.getItem(key);
-      if (item === null) {
+      const storageObj = this._getStorageObject();
+      let item = null;
+      if (storageObj) {
+        item = storageObj.getItem(key);
+      } else if (Object.prototype.hasOwnProperty.call(this._inMemory, key)) {
+        item = this._inMemory[key];
+      }
+
+      if (item === null || typeof item === 'undefined') {
         return defaultValue;
       }
 
       // Try to parse as JSON, fallback to string
       try {
         return JSON.parse(item);
-      } catch {
+      } catch (err) {
         return item;
       }
     } catch (e) {
@@ -81,13 +91,19 @@ class StorageManager {
    * @returns {boolean}
    */
   removeItem(key) {
-    if (!this.isAvailable) {
-      return false;
-    }
-
     try {
-      this.storage.removeItem(key);
-      return true;
+      const storageObj = this._getStorageObject();
+      if (storageObj) {
+        storageObj.removeItem(key);
+        return true;
+      }
+
+      if (Object.prototype.hasOwnProperty.call(this._inMemory, key)) {
+        delete this._inMemory[key];
+        return true;
+      }
+
+      return false;
     } catch (e) {
       console.error('Error removing storage item:', e);
       return false;
@@ -99,12 +115,14 @@ class StorageManager {
    * @returns {boolean}
    */
   clear() {
-    if (!this.isAvailable) {
-      return false;
-    }
-
     try {
-      this.storage.clear();
+      const storageObj = this._getStorageObject();
+      if (storageObj) {
+        storageObj.clear();
+        return true;
+      }
+
+      this._inMemory = Object.create(null);
       return true;
     } catch (e) {
       console.error('Error clearing storage:', e);
@@ -117,12 +135,13 @@ class StorageManager {
    * @returns {string[]}
    */
   getKeys() {
-    if (!this.isAvailable) {
-      return [];
-    }
-
     try {
-      return Object.keys(this.storage);
+      const storageObj = this._getStorageObject();
+      if (storageObj) {
+        return Object.keys(storageObj);
+      }
+
+      return Object.keys(this._inMemory);
     } catch (e) {
       console.error('Error getting storage keys:', e);
       return [];
@@ -135,11 +154,17 @@ class StorageManager {
    * @returns {boolean}
    */
   hasItem(key) {
-    if (!this.isAvailable) {
+    try {
+      const storageObj = this._getStorageObject();
+      if (storageObj) {
+        return storageObj.getItem(key) !== null;
+      }
+
+      return Object.prototype.hasOwnProperty.call(this._inMemory, key);
+    } catch (e) {
+      console.error('Error checking storage item:', e);
       return false;
     }
-
-    return this.storage.getItem(key) !== null;
   }
 
   /**
@@ -147,21 +172,40 @@ class StorageManager {
    * @returns {number}
    */
   getSize() {
-    if (!this.isAvailable) {
-      return 0;
-    }
-
     try {
+      const storageObj = this._getStorageObject();
       let size = 0;
-      for (let key in this.storage) {
-        if (this.storage.hasOwnProperty(key)) {
-          size += this.storage[key].length + key.length;
+      if (storageObj) {
+        for (let key in storageObj) {
+          if (Object.prototype.hasOwnProperty.call(storageObj, key)) {
+            size += storageObj[key].length + key.length;
+          }
+        }
+      } else {
+        for (let key in this._inMemory) {
+          if (Object.prototype.hasOwnProperty.call(this._inMemory, key)) {
+            size += this._inMemory[key].length + key.length;
+          }
         }
       }
       return size;
     } catch (e) {
       console.error('Error calculating storage size:', e);
       return 0;
+    }
+  }
+
+  /**
+   * Internal helper to safely get the underlying storage object (window.localStorage/sessionStorage)
+   */
+  _getStorageObject() {
+    try {
+      if (typeof window === 'undefined') return null;
+      if (this.storageType === 'localStorage' && window.localStorage) return window.localStorage;
+      if (this.storageType === 'sessionStorage' && window.sessionStorage) return window.sessionStorage;
+      return null;
+    } catch (e) {
+      return null;
     }
   }
 }

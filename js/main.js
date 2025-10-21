@@ -220,14 +220,31 @@ class PortfolioApp {
     console.log('Portfolio App: Initializing libraries...');
     
     // Initialize AOS (Animate On Scroll)
-    if (Config.isFeatureEnabled('animations') && typeof AOS !== 'undefined') {
-      AOS.init({
-        duration: Config.aos.duration,
-        easing: Config.aos.easing,
-        once: Config.aos.once,
-        offset: Config.aos.offset,
-        disable: Config.isMobile() ? 'mobile' : false
-      });
+    if (Config.isFeatureEnabled('animations')) {
+      try {
+        if (typeof AOS !== 'undefined' && AOS && typeof AOS.init === 'function') {
+          AOS.init({
+            duration: Config.aos.duration,
+            easing: Config.aos.easing,
+            once: Config.aos.once,
+            offset: Config.aos.offset,
+            disable: Config.isMobile() ? 'mobile' : false
+          });
+        } else {
+          // If AOS is not available, ensure elements with data-aos are visible
+          document.querySelectorAll('[data-aos]').forEach(el => {
+            el.style.opacity = '';
+            el.style.transform = '';
+          });
+        }
+      } catch (e) {
+        console.error('AOS initialization failed:', e);
+        // Make sure elements are visible if AOS fails
+        document.querySelectorAll('[data-aos]').forEach(el => {
+          el.style.opacity = '';
+          el.style.transform = '';
+        });
+      }
     }
 
     // Initialize Swiper sliders

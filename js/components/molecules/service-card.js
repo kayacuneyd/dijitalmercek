@@ -28,31 +28,87 @@ class ServiceCard extends HTMLElement {
       return;
     }
 
+    const { title, description, icon } = this._service;
+    const summary = this.formatSummary(description);
+    const iconMarkup = this.createIconMarkup(icon, title);
+
     this.innerHTML = `
-      <div class="card service-card h-100">
-        <div class="card-body d-flex flex-column">
+      <article class="card service-card service-card--compact h-100" tabindex="0">
+        <div class="card-body">
           <div class="service-icon mb-3">
-            <i class="icon-${this._service.id || 'code'} fs-1 text-primary"></i>
+            ${iconMarkup}
           </div>
-          <h3 class="card-title h5 mb-3">${this._service.title || 'Servis'}</h3>
-          <p class="card-text text-muted flex-grow-1">${this._service.description || 'Açıklama'}</p>
-          <div class="service-footer mt-auto">
-            <div class="service-price mb-2">
-              <small class="text-success fw-semibold">Fiyat bilgisi için iletişime geçin</small>
-            </div>
-            <div class="service-delivery mb-3">
-              <small class="text-muted">
-                <i class="icon-clock me-1"></i>
-                Süre belirtilmemiş
-              </small>
-            </div>
-            <button class="btn btn-outline-primary btn-sm w-100" data-service-id="${this._service.id}">
-              Daha Fazla Bilgi
-            </button>
-          </div>
+          <h3 class="service-card-title h5 mb-2">${title || 'Servis'}</h3>
+          <p class="service-summary text-muted">${summary}</p>
         </div>
-      </div>
+      </article>
     `;
+
+    this.setupIconFallback();
+  }
+
+  formatSummary(text) {
+    if (!text || typeof text !== 'string') {
+      return 'Bu hizmet hakkında detaylar yakında eklenecek.';
+    }
+
+    const sentenceMatch = text.match(/[^.!?]+[.!?]/);
+    if (sentenceMatch) {
+      return sentenceMatch[0].trim();
+    }
+
+    return `${text.trim()}.`;
+  }
+
+  createIconMarkup(iconPath, title) {
+    const fallbackSymbol = this.getIconFallbackSymbol();
+
+    if (iconPath) {
+      const safeTitle = title || 'servis';
+      return `
+        <span class="service-icon-wrapper">
+          <img src="${iconPath}" alt="${safeTitle} ikon" class="service-icon-img" loading="lazy">
+          <span class="service-icon-fallback" aria-hidden="true" hidden>${fallbackSymbol}</span>
+        </span>
+      `;
+    }
+
+    return `<span class="service-icon-fallback" aria-hidden="true">${fallbackSymbol}</span>`;
+  }
+
+  setupIconFallback() {
+    const image = this.querySelector('.service-icon-img');
+    const fallback = this.querySelector('.service-icon-fallback[hidden]');
+
+    if (!image || !fallback) {
+      return;
+    }
+
+    const showFallback = () => {
+      fallback.hidden = false;
+      image.setAttribute('hidden', '');
+    };
+
+    image.addEventListener('error', showFallback, { once: true });
+
+    if (image.complete && image.naturalWidth === 0) {
+      showFallback();
+    }
+  }
+
+  getIconFallbackSymbol() {
+    const icons = {
+      'web-development': '💻',
+      'ui-ux-design': '🎨',
+      'ecommerce': '🛒',
+      'mobile-app': '📱',
+      'seo-optimization': '📈',
+      'maintenance': '🛠️',
+      'wordpress': '📰',
+      'api-development': '🔗'
+    };
+
+    return icons[this._service?.id] || '⚙️';
   }
 }
 

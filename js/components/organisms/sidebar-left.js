@@ -45,7 +45,7 @@ class SidebarLeft extends HTMLElement {
         <!-- Profile Section -->
         <div class="profile-section text-center mb-4">
           <avatar-image 
-            src="assets/images/profile.jpg" 
+            src="https://kayacuneyt.com/assets/images/kayacuneyt.jpeg" 
             alt="${this.profile.personal?.name || 'Profile'}"
             size="large">
           </avatar-image>

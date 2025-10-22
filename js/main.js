@@ -151,7 +151,7 @@ class PortfolioApp {
       './components/organisms/sidebar-right.js',
       './components/organisms/service-slider.js',
       './components/organisms/faq-slider.js',
-      './components/organisms/ai-chat-modal.js',
+      './components/organisms/ai-chat-inline.js',
       './components/organisms/auth-modal.js',
       './components/organisms/project-grid.js',
       './components/organisms/cal-embed.js'
@@ -201,11 +201,6 @@ class PortfolioApp {
       faqSlider.innerHTML = '<faq-slider></faq-slider>';
     }
 
-    // Initialize modals
-    const aiChatModal = document.getElementById('ai-chat-modal');
-    if (aiChatModal) {
-      aiChatModal.innerHTML = '<ai-chat-modal></ai-chat-modal>';
-    }
 
     const authModal = document.getElementById('auth-modal');
     if (authModal) {
@@ -303,6 +298,9 @@ class PortfolioApp {
     
     // Mobile CTA button
     this.setupMobileCTA();
+    
+    // FAQ chat integration
+    this.setupFAQChat();
     
     // Window resize handler
     this.setupResizeHandler();
@@ -408,29 +406,48 @@ class PortfolioApp {
   }
 
   /**
-   * Setup chat modal
+   * Setup inline chat
    */
   setupChatModal() {
     const openChatBtn = document.getElementById('open-chat-btn');
     const mobileCTABtn = document.getElementById('mobile-cta-btn');
     
-    const openChat = () => {
-      const chatModal = document.querySelector('ai-chat-modal');
-      if (chatModal) {
-        chatModal.show();
-        analyticsService.trackEvent('chat', 'modal_open');
+    const focusChatInput = () => {
+      const chatInput = document.getElementById('chat-input');
+      if (chatInput) {
+        chatInput.focus();
+        if (window.analyticsService) {
+          window.analyticsService.trackEvent('chat', 'input_focused');
+        }
+      }
+    };
+    
+    const scrollToChat = () => {
+      const chatSection = document.querySelector('.chat-section');
+      if (chatSection) {
+        chatSection.scrollIntoView({ behavior: 'smooth' });
+        // Focus input after scroll
+        setTimeout(() => {
+          const chatInput = document.getElementById('chat-input');
+          if (chatInput) {
+            chatInput.focus();
+          }
+        }, 500);
+        if (window.analyticsService) {
+          window.analyticsService.trackEvent('chat', 'section_scrolled');
+        }
       }
     };
     
     if (openChatBtn) {
-      openChatBtn.addEventListener('click', openChat);
+      openChatBtn.addEventListener('click', focusChatInput);
     }
     
     if (mobileCTABtn) {
-      mobileCTABtn.addEventListener('click', openChat);
+      mobileCTABtn.addEventListener('click', scrollToChat);
     }
     
-    this.eventListeners.set('chatModal', { openChat });
+    this.eventListeners.set('chatModal', { focusChatInput, scrollToChat });
   }
 
   /**
@@ -470,6 +487,53 @@ class PortfolioApp {
       window.addEventListener('scroll', Foundation.throttle(toggleCTA, 100));
       this.eventListeners.set('mobileCTA', { toggleCTA });
     }
+  }
+
+  /**
+   * Setup FAQ chat integration
+   */
+  setupFAQChat() {
+    // Listen for FAQ button clicks
+    document.addEventListener('open-chat-with-question', (event) => {
+      const { question } = event.detail;
+      
+      console.log('FAQ question clicked:', question);
+      
+      // Find inline chat component
+      const chatInline = document.querySelector('ai-chat-inline');
+      
+      console.log('Chat inline found:', chatInline);
+      
+      if (chatInline) {
+        // Scroll to chat section
+        const chatSection = document.querySelector('.chat-section');
+        if (chatSection) {
+          chatSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Set message and send after a short delay
+        setTimeout(() => {
+          if (chatInline.setMessageAndSend) {
+            chatInline.setMessageAndSend(question);
+            console.log('Question sent to inline chat:', question);
+          } else {
+            console.error('setMessageAndSend method not found on chat inline');
+          }
+        }, 500);
+        
+        // Analytics tracking
+        if (window.analyticsService) {
+          window.analyticsService.trackEvent('chat', 'faq_question_clicked', { question });
+        }
+      } else {
+        console.error('Chat inline not found! Available elements:', {
+          'ai-chat-inline': document.querySelector('ai-chat-inline'),
+          'chat-section': document.querySelector('.chat-section')
+        });
+      }
+    });
+    
+    console.log('Portfolio App: FAQ chat integration setup complete');
   }
 
   /**

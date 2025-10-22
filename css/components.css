@@ -24,6 +24,92 @@ app-header {
   width: 100%;
 }
 
+/* ===== SERVICE SCROLLER ===== */
+.service-scroll {
+  display: flex;
+  gap: var(--spacing-4);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-3);
+  margin: 0 calc(var(--spacing-2) * -1);
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.service-scroll:focus-visible {
+  outline: none;
+}
+
+.service-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.service-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-color-dark);
+  border-radius: var(--border-radius-full);
+}
+
+.service-scroll service-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 576px) {
+  .service-scroll service-card {
+    flex-basis: 280px;
+  }
+}
+
+@media (min-width: 992px) {
+  .service-scroll service-card {
+    flex-basis: 300px;
+  }
+}
+
+.service-card {
+  height: 100%;
+}
+
+.service-card--compact .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: var(--spacing-5);
+}
+
+.service-card--compact .service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.service-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.service-card--compact .service-icon-fallback {
+  font-size: 2rem;
+}
+
+.service-card--compact .service-summary {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.service-card--compact .service-card-title {
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+}
+
 /* ===== CHAT MODAL STYLES ===== */
 .chat-messages {
   height: 400px;
@@ -255,11 +341,23 @@ app-header {
   overflow: hidden;
   text-overflow: ellipsis;
   transition: all var(--transition-base);
+  min-width: fit-content;
+  width: auto;
 }
 
 .faq-button:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* ===== FAQ SLIDER STYLES ===== */
+.faq-swiper .swiper-slide {
+  width: auto;
+}
+
+.faq-swiper .swiper-slide faq-button {
+  display: block;
+  width: 100%;
 }
 
 /* ===== CALENDAR STYLES ===== */

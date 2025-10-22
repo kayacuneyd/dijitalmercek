@@ -296,37 +296,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM loaded, initializing components...');
-            
+
             // Wait a bit for all scripts to load
             setTimeout(() => {
-                // Initialize components
+                // Helper: replace only if container is empty or contains only loading placeholders
+                const shouldReplace = (el) => {
+                    if (!el) return false;
+                    const html = el.innerHTML.trim();
+                    if (!html) return true;
+                    const children = Array.from(el.children || []);
+                    if (children.length && children.every(c => c.classList && c.classList.contains('loading-placeholder'))) return true;
+                    return false;
+                };
+
                 const header = document.getElementById('app-header');
-                if (header) {
+                if (shouldReplace(header)) {
                     header.innerHTML = '<app-header></app-header>';
                 }
 
                 const leftSidebar = document.getElementById('sidebar-left');
-                if (leftSidebar) {
+                if (shouldReplace(leftSidebar)) {
                     leftSidebar.innerHTML = '<sidebar-left></sidebar-left>';
                 }
 
                 const rightSidebar = document.getElementById('sidebar-right');
-                if (rightSidebar) {
+                if (shouldReplace(rightSidebar)) {
                     rightSidebar.innerHTML = '<sidebar-right></sidebar-right>';
                 }
 
                 const serviceSlider = document.getElementById('service-slider');
-                if (serviceSlider) {
+                if (shouldReplace(serviceSlider)) {
                     serviceSlider.innerHTML = '<service-slider></service-slider>';
                 }
 
                 const faqSlider = document.getElementById('faq-slider');
-                if (faqSlider) {
+                if (shouldReplace(faqSlider)) {
                     faqSlider.innerHTML = '<faq-slider></faq-slider>';
                 }
-                
+
                 console.log('Components initialized!');
-            }, 1000);
+            }, 800);
         });
     </script>
 

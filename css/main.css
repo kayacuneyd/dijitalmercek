@@ -404,6 +404,25 @@
   background-color: var(--color-primary);
 }
 
+/* FAQ slider tweaks: make items more compact and reduce gap */
+#faq-slider {
+  gap: 0.5rem !important; /* smaller gap between FAQ items */
+  padding-bottom: 0.25rem;
+}
+
+#faq-slider .faq-item-btn {
+  margin-bottom: 0 !important; /* remove extra bottom spacing */
+  flex: 0 0 auto; /* prevent buttons from stretching */
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  white-space: normal;
+}
+
+/* If loading-placeholder present, keep height but remove big margins */
+#faq-slider .loading-placeholder {
+  margin-bottom: 0 !important;
+}
+
 .badge-secondary {
   background-color: var(--text-secondary);
 }
